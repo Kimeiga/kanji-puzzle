@@ -49,7 +49,7 @@ def create_char_json_japanese():
     for kanji in kanjidic:
         if len(kanji['readingMeaning'].get('groups', [])) > 0 and kanji['misc']['jlptLevel'] != None and kanji['misc']['frequency'] != None:
             entries[kanji['literal']] = {
-                'r': kanji['readingMeaning']['groups'][0], 'n': kanji['readingMeaning']['nanori']}
+                'r': kanji['readingMeaning']['groups'][0], 'n': kanji['readingMeaning']['nanori'], 'l': kanji['literal']}
 
     # add ids information
     with open('character_strokes.json', 'r', encoding='utf-8') as file:

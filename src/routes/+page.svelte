@@ -69,8 +69,8 @@
 	let korean_hs = [];
 	let vietnameses = [];
 
-	// Assuming data.randomChar.readingMeaning.groups[0].readings is an array of reading objects
-	data.randomChar.readingMeaning?.groups[0].readings.forEach((reading) => {
+	// Assuming data.randomChar.r.readings is an array of reading objects
+	data.randomChar.r.readings.forEach((reading) => {
 		switch (reading.type) {
 			case 'ja_on':
 				onyomis.push(reading.value);
@@ -175,7 +175,7 @@
 <main>
 	<div class="game">
 		{#if correctness == 'correct'}
-			<h1 style="font-weight: 400; font-size: 3rem; margin: 1rem;">{data.randomChar.literal}</h1>
+			<h1 style="font-weight: 400; font-size: 3rem; margin: 1rem;">{data.randomChar.l}</h1>
 		{/if}
 		{#if chinese}
 			<h1 class="gloss">{data.randomChar.gloss}</h1>
@@ -186,7 +186,7 @@
 			{/each}
 		{:else}
 			<div>
-				{#each data.randomChar.readingMeaning?.groups[0].meanings ?? [] as meaning}
+				{#each data.randomChar.r.meanings ?? [] as meaning}
 					<span class="comma">{meaning.value}</span>
 				{/each}
 			</div>
@@ -201,10 +201,10 @@
 							>{/each}{/if}
 				</div>
 			{/if}
-			{#if data.randomChar.readingMeaning.nanori.length > 0}
+			{#if data.randomChar.n.length > 0}
 				<div>
 					📛
-					{#each data.randomChar.readingMeaning.nanori ?? [] as nanori}
+					{#each data.randomChar.n ?? [] as nanori}
 						<span class="comma-jp">{nanori}</span>
 					{/each}
 				</div>
@@ -260,7 +260,7 @@
 				{#if chinese}
 					<p>{data.randomChar.char}</p>
 				{:else}
-					<p>{data.randomChar.literal}</p>
+					<p>{data.randomChar.l}</p>
 				{/if}
 			</div>
 		{/if}
